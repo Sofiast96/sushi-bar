@@ -1,0 +1,74 @@
+
+    /* Головні налаштування */
+    body { 
+        font-family: 'Montserrat', sans-serif; 
+        background-color: #f8f9fa; 
+        margin: 0; 
+        color: #2b2d42;
+    }
+
+    /* Хедер з градієнтом */
+    header { 
+        background: linear-gradient(135deg, #d90429, #ef233c); 
+        color: white; 
+        padding: 40px 20px; 
+        text-align: center; 
+        box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    }
+
+    header h1 { margin: 0; letter-spacing: 3px; font-size: 3rem; }
+
+    /* Секція Hero (привітання) */
+    .hero { 
+        background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://images.unsplash.com/photo-1579871494447-9811cf80d66c?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
+        background-size: cover;
+        background-position: center;
+        color: white;
+        padding: 80px 20px;
+        text-align: center;
+    }
+
+    /* Контейнер для меню */
+    .menu { 
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+        gap: 30px;
+        padding: 50px;
+        max-width: 1200px;
+        margin: 0 auto;
+    }
+
+    /* Красиві картки ролів */
+    .card { 
+        background: white; 
+        border-radius: 20px; 
+        padding: 25px; 
+        text-align: center; 
+        box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+        transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        border: 1px solid #eee;
+    }
+
+    .card:hover { 
+        transform: scale(1.05);
+        box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+        border-color: #ef233c;
+    }
+
+    .card h3 { color: #d90429; font-size: 1.5rem; }
+
+    /* Ціна та кнопка */
+    .price { font-size: 1.2rem; font-weight: bold; color: #1d3557; margin: 15px 0; }
+
+    button { 
+        background: #2b2d42; 
+        color: white; 
+        border: none; 
+        padding: 12px 25px; 
+        border-radius: 50px; 
+        cursor: pointer; 
+        font-weight: 600;
+        transition: background 0.3s;
+    }
+
+    button:hover { background: #ef233c; }
