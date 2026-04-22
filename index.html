@@ -14,18 +14,38 @@
         <p>Замовляйте найсвіжіші роли одним натисканням.</p>
     </div>
     <div class="menu">
-        <div class="card">
-            <h3>Філадельфія</h3>
-            <p>Лосось, сир, огірок</p>
-            <p><strong>250 грн</strong></p>
-            <button>В кошик</button>
         </div>
-        <div class="card">
-            <h3>Каліфорнія</h3>
-            <p>Краб, авокадо, ікра</p>
-            <p><strong>190 грн</strong></p>
-            <button>В кошик</button>
-        </div>
-    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+    <script>
+        const supabaseUrl = 'https://fyhmksqvkzseiszcxccq.supabase.co';
+        const supabaseKey = 'sb_publishable_FgCrL-f9_H35arFCZ-liqw_r41Po-v_';
+        const _supabase = supabase.createClient(supabaseUrl, supabaseKey);
+
+        async function loadSushi() {
+            const { data, error } = await _supabase.from('products').select('*');
+
+            if (error) {
+                console.error("Помилка бази:", error.message);
+                return;
+            }
+
+            if (data) {
+                const menuContainer = document.querySelector('.menu');
+                // Створюємо картки на основі даних з таблиці
+                menuContainer.innerHTML = data.map(item => `
+                    <div class="card">
+                        <h3>${item.name}</h3>
+                        <p>${item.description}</p>
+                        <p class="price">${item.price} грн</p>
+                        <button>В кошик</button>
+                    </div>
+                `).join('');
+            }
+        }
+
+        loadSushi();
+    </script>
 </body>
 </html>

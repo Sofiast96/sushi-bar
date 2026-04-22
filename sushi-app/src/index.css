@@ -1,0 +1,298 @@
+:root {
+  --main-pink: #ff4d8d;      /* Яскравий рожевий для кнопок */
+  --soft-pink: #fff0f5;      /* Світло-рожевий для фону */
+  --border-pink: #ffd1dc;    /* Для рамок */
+  --text-dark: #4a4a4a;
+}
+
+body {
+  margin: 0;
+  font-family: 'Inter', sans-serif;
+  background-color: #ffffff;
+  color: var(--text-dark);
+}
+
+.main-layout {
+  display: flex;
+  min-height: 100vh;
+}
+
+/* Бокове меню */
+.sidebar {
+  width: 200px;
+  border-right: 1px solid var(--border-pink);
+  padding: 20px;
+  position: fixed;
+  height: 100vh;
+  background: white;
+}
+
+.logo {
+  font-weight: 800;
+  font-size: 24px;
+  color: var(--main-pink);
+  margin-bottom: 40px;
+}
+
+.nav-item {
+  display: block;
+  width: 100%;
+  padding: 12px;
+  border: none;
+  background: none;
+  text-align: left;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 8px;
+  margin-bottom: 5px;
+  transition: 0.3s;
+}
+
+.nav-item.active, .nav-item:hover {
+  background-color: var(--soft-pink);
+  color: var(--main-pink);
+}
+
+/* Основний контент */
+.content {
+  margin-left: 240px;
+  flex: 1;
+  padding: 20px 40px;
+}
+
+.top-header {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 40px;
+  align-items: center;
+}
+
+.cart-btn {
+  background: var(--main-pink);
+  color: white;
+  padding: 10px 20px;
+  border-radius: 20px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.category-title {
+  font-size: 32px;
+  margin-bottom: 30px;
+}
+
+/* Сітка карток */
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 25px;
+}
+
+.card {
+  border: 1px solid var(--border-pink);
+  border-radius: 16px;
+  padding: 15px;
+  position: relative;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px var(--soft-pink);
+}
+
+.product-img {
+  width: 100%;
+  border-radius: 12px;
+  margin-bottom: 15px;
+}
+
+.tag {
+  position: absolute;
+  top: 15px;
+  left: 15px;
+  background: var(--main-pink);
+  color: white;
+  padding: 4px 10px;
+  border-radius: 8px;
+  font-size: 12px;
+  font-weight: bold;
+}
+
+.card-info h3 {
+  margin: 0 0 5px 0;
+  font-size: 18px;
+}
+
+.desc {
+  font-size: 14px;
+  color: #888;
+  margin-bottom: 20px;
+}
+
+.card-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.price {
+  font-weight: 700;
+  font-size: 18px;
+}
+
+.buy-button {
+  background: var(--soft-pink);
+  color: var(--main-pink);
+  border: 2px solid var(--main-pink);
+  padding: 8px 25px;
+  border-radius: 20px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.buy-button:hover {
+  background: var(--main-pink);
+  color: white;
+}
+/* --- Нові стилі для цін --- */
+.price-block {
+  display: flex;
+  flex-direction: column;
+}
+
+.old-price {
+  font-size: 14px;
+  text-decoration: line-through;
+  color: #a0a0a0;
+  margin-bottom: 2px;
+}
+/* --- Стилі для розділу Кошика --- */
+.cart-section {
+  margin-top: 50px;
+  padding: 30px;
+  background: #fff;
+  border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+}
+
+.cart-section h2 {
+  margin-top: 0;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+.cart-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 0;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.cart-item-name {
+  flex: 2;
+  font-weight: 600;
+  font-size: 16px;
+}
+
+.cart-item-qty {
+  flex: 1;
+  color: #ff477e;
+  font-weight: bold;
+}
+
+.cart-item-price {
+  flex: 1;
+  font-weight: bold;
+}
+
+.delete-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 18px;
+  transition: transform 0.2s;
+}
+
+.delete-btn:hover {
+  transform: scale(1.2);
+}
+
+.cart-total {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 30px;
+  padding-top: 20px;
+  border-top: 2px dashed #ffe0e9;
+}
+
+.total-highlight {
+  color: #ff477e;
+  font-size: 24px;
+}
+
+.checkout-button {
+  background: #ff477e;
+  color: white;
+  border: none;
+  padding: 15px 30px;
+  border-radius: 12px;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.3s, transform 0.2s;
+}
+
+.checkout-button:hover {
+  background: #e03a6b;
+  transform: translateY(-2px);
+}
+/* --- Банер --- */
+.promo-banner {
+  background: linear-gradient(135deg, #ff9a9e 0%, #fecfef 99%, #fecfef 100%);
+  border-radius: 20px;
+  padding: 30px;
+  color: #fff;
+  margin-bottom: 40px;
+  text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+}
+
+.promo-banner h2 { margin: 0 0 10px 0; font-size: 28px; }
+.promo-banner p { margin: 0; font-size: 16px; font-weight: 500; }
+
+/* --- Модальне вікно (Попап) --- */
+.modal-overlay {
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(0,0,0,0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  backdrop-filter: blur(4px);
+}
+
+.modal {
+  background: white;
+  padding: 40px;
+  border-radius: 20px;
+  text-align: center;
+  max-width: 400px;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+}
+
+.modal h2 { color: #ff477e; margin-top: 0; }
+
+.close-modal-btn {
+  margin-top: 20px;
+  background: #ff477e;
+  color: white;
+  border: none;
+  padding: 12px 25px;
+  border-radius: 12px;
+  font-weight: bold;
+  cursor: pointer;
+}
