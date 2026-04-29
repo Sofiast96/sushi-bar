@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import React, { useState } from 'react'
 import './index.css'
 import { supabase } from './supabaseClient' // Переконайся, що назва файлу збігається з твоєю (може бути просто supabase.js)
 
