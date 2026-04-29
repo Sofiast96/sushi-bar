@@ -100,7 +100,7 @@ function App() {
             {filteredProducts.map(product => (
               <div key={product.id} className="card">
                 {product.tag && <span className={`tag ${product.tag.toLowerCase()}`}>{product.tag}</span>}
-                <img src={product.img} alt={product.name} className="product-img" />
+               <img src={product.img} alt={product.name} className="product-img" style={{ width: '100%', height: '200px', objectFit: 'cover' }} />
                 <div className="card-info">
                   <h3>{product.name}</h3>
                   <p className="desc">{product.description}</p>
