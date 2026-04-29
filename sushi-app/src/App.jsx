@@ -67,12 +67,13 @@ function App() {
   }
 
   return (
-    <div className="main-layout">
-      <aside className="sidebar">
+        <div className="main-layout">
+      {/* НОВЕ: верхнє меню */}
+      <nav className="top-nav">
         <div className="logo">🌸 SAKURA</div>
-        <nav>
+        <div className="nav-links">
           {['Роли', 'Сети', 'Напої'].map(cat => (
-            <button 
+            <button
               key={cat}
               className={`nav-item ${activeCategory === cat ? 'active' : ''}`}
               onClick={() => setActiveCategory(cat)}
@@ -80,8 +81,8 @@ function App() {
               {cat === 'Роли' ? '🍣' : cat === 'Сети' ? '🍱' : '🥤'} {cat}
             </button>
           ))}
-        </nav>
-      </aside>
+        </div>
+      </nav>
 
       <main className="content">
         <header className="top-header">
@@ -100,7 +101,7 @@ function App() {
             {filteredProducts.map(product => (
               <div key={product.id} className="card">
                 {product.tag && <span className={`tag ${product.tag.toLowerCase()}`}>{product.tag}</span>}
-               <img src={product.img} alt={product.name} className="product-img" style={{ width: '100%', height: '200px', objectFit: 'cover' }} />
+               <img src={product.img} alt={product.name} className="image" />
                 <div className="card-info">
                   <h3>{product.name}</h3>
                   <p className="desc">{product.description}</p>
