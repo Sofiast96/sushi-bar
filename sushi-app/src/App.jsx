@@ -1,12 +1,12 @@
 import React, { useState } from 'react'
 import './index.css'
 import { supabase } from './supabaseClient' // Переконайся, що назва файлу збігається з твоєю (може бути просто supabase.js)
-
+import OrderModal from '../components/OrderModal';
 function App() {
   const [cart, setCart] = useState([])
   const [activeCategory, setActiveCategory] = useState("Роли")
   const [isCheckoutOpen, setIsCheckoutOpen] = useState(false)
-
+  const [isOrderModalOpen, setIsOrderModalOpen] = useState(false);
   // 🌸 Оновлена база товарів з твоїми картинками
   const [products] = useState([
     // РОЛИ
@@ -62,7 +62,7 @@ function App() {
       return 
     }
 
-    setIsCheckoutOpen(true)
+    setIsOrderModalOpen(true);
     setCart([]) 
   }
 
@@ -147,6 +147,13 @@ function App() {
             </div>
           </div>
         )}
+ <OrderModal
+          isOpen={isOrderModalOpen}
+          onClose={() => setIsOrderModalOpen(false)}
+          onSubmit={(customerData) => console.log('Дані замовлення:', customerData)}
+          cart={cart}
+          totalPrice={totalPrice}
+        />
       </main>
     </div>
   )
